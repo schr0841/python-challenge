@@ -21,7 +21,12 @@ with open(election_csv) as csvfile:
 
     for row in csvreader:
         # Add date
-        candidate[row[2]]=+1
+        #print(candidate.get(row[2]))
+        #candidate[row[2]]=1
+        #print(row[2])
+        if candidate.get(row[2])==None:
+            candidate[row[2]]=1
+        else: candidate[row[2]]+=1
         total_votes+=1
 
 
@@ -42,11 +47,21 @@ with open(file, 'w') as text:
     text.write('----------------------------')
     #text.write('Total: ' + str(total_profit))
 
+
     for item in candidate.keys():
         print(item, candidate[item]/total_votes*100, candidate[item])
-
+        text.write('\n')
+        text.write(str(item)+" " +str(candidate[item]/total_votes*100)+" "+str(candidate[item]))
+        text.write('\n')
+    winner = max(candidate,key=candidate.get)
+    text.write('\n')
+    text.write('----------------------------')
+    print("Winner: ", winner)
+    text.write('\n')
+    text.write("Winner: " + str(winner))
 
     text.write('\n')
+    text.write('----------------------------')
     #text.write('Average Change: ' + str(avg_profit))
     
     

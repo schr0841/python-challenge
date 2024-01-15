@@ -23,7 +23,7 @@ with open(budget_csv) as csvfile:
     for row in csvreader:
         # Add date
         date.append(row[0])
-        total_months=+1
+        total_months+=1
         # Add profit/loss
         profit.append(int(row[1]))
         total_profit+=int(row[1])

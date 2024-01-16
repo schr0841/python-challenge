@@ -34,8 +34,8 @@ with open(budget_csv) as csvfile:
             biggest_down=int(row[1])
             biggest_down_date=row[0]
 for prof in profit:
-    avg_profit += prof/len(profit)
-
+    avg_profit += prof
+avg_profit=avg_profit/len(profit)
 
 print('Financial Analysis')
 print('----------------------------')
@@ -70,7 +70,7 @@ with open(file, 'w') as text:
     text.write('Average Change: ' + str(avg_profit))
     
     text.write('\n')
-    text.write('Greatest Increase in Profits: '+ str(biggest_up_date)+ str(biggest_up))
+    text.write('Greatest Increase in Profits: '+ str(biggest_up_date)+ " "+str(biggest_up))
     
     text.write('\n')
-    text.write('Greatest Decrease in Profits: '+str(biggest_down_date) +str(biggest_down))
+    text.write('Greatest Decrease in Profits: '+str(biggest_down_date) +" " +str(biggest_down))

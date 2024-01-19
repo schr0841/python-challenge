@@ -26,7 +26,7 @@ with open(election_csv) as csvfile:
         total_votes+=1
 
 
-file = 'Resources/output.txt'
+file = 'analysis/output.txt'
 
 
 # Open the file in "write" mode ('w') and store the contents in the variable "text"

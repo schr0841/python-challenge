@@ -74,7 +74,7 @@ print('Greatest Increase in Profits: ', largest_delta_date,"${:,.2f}".format(lar
 print('Greatest Decrease in Profits: ', smallest_delta_date, "${:,.2f}".format(smallest_delta))
 
 #file = 'C:/Users/schre/OneDrive/Documents/GitHub/python-challenge/PyBank/Resources/output.txt'
-file='Resources/output.txt'
+file='analysis/output.txt'
 # Open the file in "read" mode ('w') and store the contents in the variable "text"
 with open(file, 'w') as text:
 

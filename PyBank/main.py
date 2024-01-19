@@ -1,9 +1,7 @@
 import os
 import csv
 
-#budget_csv = os.path.join("..", "Resources", "budget_data.csv")
-
-budget_csv="C:/Users/schre/OneDrive/Documents/GitHub/python-challenge/PyBank/Resources/budget_data.csv"
+budget_csv = os.path.join("Resources", "budget_data.csv")
 
 date=[]
 profit=[]
@@ -19,7 +17,7 @@ with open(budget_csv) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     
     #read in header row
-    next(csvreader)
+    header=next(csvreader)
     largest_delta=0
     delta=0
     smallest_delta=0
@@ -46,9 +44,9 @@ with open(budget_csv) as csvfile:
         if smallest_delta>delta:
             smallest_delta=delta
             smallest_delta_date=row[0]
-print('largest delta: ', largest_delta, 'largest delta date: ', largest_delta_date)
-print('\n')
-print('smallest delta: ', smallest_delta, 'smallest delta date: ', smallest_delta_date)  
+#print('largest delta: ', largest_delta, 'largest delta date: ', largest_delta_date)
+#print('\n')
+#print('smallest delta: ', smallest_delta, 'smallest delta date: ', smallest_delta_date)  
 #for prof in profit:
 #    avg_profit += prof
 #avg_profit=avg_profit/len(profit)
@@ -67,14 +65,16 @@ print('Total Months: ', total_months)
 
 print('Total: ', total_profit)
 
-print('Average Change: ', total/len(deltas))
+avg_change=total/len(deltas)
 
-print('Greatest Increase in Profits: ', largest_delta_date,largest_delta)
+print('Average Change: ', "${:,.2f}".format(avg_change))
 
-print('Greatest Decrease in Profits: ', smallest_delta_date, smallest_delta)
+print('Greatest Increase in Profits: ', largest_delta_date,"${:,.2f}".format(largest_delta))
 
-file = 'C:/Users/schre/OneDrive/Documents/GitHub/python-challenge/PyBank/Resources/output.txt'
+print('Greatest Decrease in Profits: ', smallest_delta_date, "${:,.2f}".format(smallest_delta))
 
+#file = 'C:/Users/schre/OneDrive/Documents/GitHub/python-challenge/PyBank/Resources/output.txt'
+file='Resources/output.txt'
 # Open the file in "read" mode ('w') and store the contents in the variable "text"
 with open(file, 'w') as text:
 
@@ -90,10 +90,10 @@ with open(file, 'w') as text:
     text.write('Total: ' + str(total_profit))
 
     text.write('\n')
-    text.write('Average Change: ' + str(total/len(deltas)))
+    text.write('Average Change: ' + "${:,.2f}".format(avg_change))
     
     text.write('\n')
-    text.write('Greatest Increase in Profits: '+ str(largest_delta_date)+ " "+str(largest_delta))
+    text.write('Greatest Increase in Profits: '+ str(largest_delta_date)+ " "+"${:,.2f}".format(largest_delta))
     
     text.write('\n')
-    text.write('Greatest Decrease in Profits: '+str(smallest_delta_date) +" " +str(smallest_delta))
+    text.write('Greatest Decrease in Profits: '+str(smallest_delta_date) +" " +"${:,.2f}".format(smallest_delta))

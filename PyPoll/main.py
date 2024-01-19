@@ -53,7 +53,7 @@ with open(file, 'w') as text:
     for item in candidate.keys():
         print(item, f"{candidate[item]/total_votes:.3%}", f"({candidate[item]})" )
         text.write('\n')
-        text.write(str(item)+" " +f"{candidate[item]/total_votes:.3%}"   +" "+str(candidate[item]))
+        text.write(str(item)+" " +f"{candidate[item]/total_votes:.3%}"   +" "+f"({candidate[item]})")
         text.write('\n')
     winner = max(candidate,key=candidate.get)
     text.write('\n')
